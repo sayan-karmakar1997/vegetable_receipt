@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style>
+	#main_cointener{
+		position:absolute;
+	}
+	.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+	} 
+		
+		
+	.select select {
+		font-family: "Comic Sans MS", cursive, sans-serif;
+		font-size: 24px;
+		letter-spacing: 1px;
+		word-spacing: 1px;
+		color: #3815B3;
+		font-weight: 700;
+		text-decoration: none solid rgb(68, 68, 68);
+		font-style: italic;
+		font-variant: small-caps;
+		text-transform: capitalize;
+		}
+			.select select::-ms-expand {
+				display: none;
+			}
+			.select select:hover,
+			.select select:focus {
+				color: #000000;
+				background: #93d5c2;
+			}
+			.select select:disabled {
+				opacity: 0.2;
+				pointer-events: none;
+			}
+	.select_arrow {
+		position: absolute;
+		top: 25px;
+		right: 30px;
+		pointer-events: none;
+		border-style: solid;
+		border-width: 8px 5px 0px 5px;
+		border-color: #7b7b7b transparent transparent transparent;
+	}
+	.select select:hover ~ .select_arrow,
+	.select select:focus ~ .select_arrow {
+		border-top-color: #000000;
+	}
+	.select select:disabled ~ .select_arrow {
+		border-top-color: #cccccc;
+	}
+	.total_price{
+		margin-left:500px;
+		font-family: "Comic Sans MS", cursive, sans-serif;
+		font-size: 24px;
+		letter-spacing: 1px;
+		word-spacing: 1px;
+		color: #3815B3;
+		font-weight: 700;
+		text-decoration: none solid rgb(68, 68, 68);
+		font-style: italic;
+		font-variant: small-caps;
+		text-transform: capitalize;
+		}
+		.vegetable{
+			color: red;
+		}
+
+		
+	
+</style>
+
+<body>
+<div id="main_cointainer">
+	<div class="select">
+		<select   id="select" onchange="myVegitable()" name="vegetable">
+			<option value="">Select a Vegitable</option>
+			<option  value="patato">Patato</option>
+			<option  value="apple">Apple</option>
+			<option  value="onion">Onion</option>
+			<option  value="cucumber">Cucumber</option>
+			<option  value="carrot">Carrot</option>
+			<option  value="mango">Mango</option>
+		  </select>
+		<span class="total_price" id="price">Total</span>
+		<div id="list"></div>
+	</div>
+ </div>
+ <script>
+  var total = 0;
+	function myVegitable() {
+		var x = document.getElementById("select").value;
+		 
+		var V = document.createElement("h1")
+		V.className="vegetable"
+		var name = document.createTextNode(x)
+        V.appendChild(name)
+		var container1 = document.getElementById("list")
+        list.appendChild(V)
+		
+		var greeting = 0;
+		if (x==""){
+			alert("please select a vegetable")
+			return
+			}
+		if (x=="patato"){
+			greeting = 30;
+			}
+		if (x=="apple"){
+			greeting = 100;
+			}
+		if (x=="onion"){
+			greeting = 20;
+			} 
+		if (x="cucumber"){
+			greeting = 40;
+			}
+		if (x=="carrot"){
+			greeting = 80;
+			}
+		if (x=="mango"){
+			greeting = 50;
+			}
+		
+			total=total+greeting;
+			document.getElementById("price").innerHTML=total;
+		}
+  </script>
+</body>
+</html>
